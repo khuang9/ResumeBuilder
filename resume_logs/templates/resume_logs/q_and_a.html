@@ -1,0 +1,75 @@
+{% extends "resume_logs/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+  <h2>Q & A</h2>
+{% endblock page_header %}
+
+{% block content %}
+  
+  <form action="{% url 'resume_logs:send_question' %}" method='post'>
+    {% csrf_token %}
+    <p>Your question:</p>
+    {{ form.question }}
+    <p><button name="Submit">Send</button></p>
+  </form>
+  
+  {% for q in history %}
+    {% if forloop.last %}
+	  <p><strong>Question:</strong> {{ q.question }}</p>
+	  <p><strong>Answer:</strong> {{ q.answer }}</p>
+	{% endif %}
+  {% empty %}
+    <p><strong>Question:</strong></p>
+	<p><strong>Answer:</strong></p>
+  {% endfor %}
+  
+
+  
+  <br></br>
+  <br></br>
+  
+  <ul>
+    
+    <!--<li>-->
+	<div class="card mb-3">
+	  <h5 class="card-header">
+		Chat History <small>(sorted from most to least recent)</small>
+	  </h5>
+		
+	  <div class="card-body">
+	    {% for q in reverse_history %}
+		  <p><strong>Question:</strong> {{ q.question }}</p>
+		  <p><strong>Answer:</strong> {{ q.answer }}</p>
+		  <br></br>
+		{% empty %}
+          <p>Nothing here yet...</p>
+		{% endfor %}
+          
+	  </div>
+	</div>
+	  
+
+	<!--{% if forloop.first %}-->
+	    
+	<!--{% endif %}-->
+	<!--
+	<div class="card mb-3">
+	  <div class="card-body">
+		<p id="demo"></p>
+		<script>
+		document.currentScript.getAttribute('ai_suggested_texts');
+		const ai_suggested_text = ai_suggested_texts;
+		let text = ai_suggested_texts.toString()
+		document.getElementById("demo").innerHTML = text;
+		</script>
+		<li>{{ai_suggested_texts}}</li>
+	  </div>
+	</div>
+	-->
+
+    <!--</li>-->
+	<br></br>
+  
+  </ul>
+{% endblock content %}

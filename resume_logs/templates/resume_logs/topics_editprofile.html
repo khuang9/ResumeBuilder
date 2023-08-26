@@ -1,0 +1,19 @@
+{% extends "resume_logs/base.html" %}
+
+{% block page_header %}
+  <h1>Sections</h1>
+{% endblock page_header %}
+
+{% block content %}
+  <!--<p>Applications</p>-->
+  <ul>
+      {% for topic in topics %}
+        <li><h3><a href="{% url 'resume_logs:topic_editprofile' topic.id %}">{{ topic }}</a></h3></li>
+      {% empty %}
+        <li>No topics have been added yet.</li>
+      {% endfor %}
+  </ul>
+  <!--<h5><small><a href="{% url 'resume_logs:new_topic' %}">Add a new topic:</a></small></h5>-->
+  <h5><small><a href="{% url 'resume_logs:profile_view' %}">View entire profile</a></small></h5>
+
+{% endblock content %}

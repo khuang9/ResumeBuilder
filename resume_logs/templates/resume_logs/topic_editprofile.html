@@ -1,0 +1,94 @@
+{% extends "resume_logs/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+  <h2>Topic: {{topic}}</h2>
+{% endblock page_header %}
+
+{% block content %}
+<!--
+  <p>Resume Assistant: {{ question }}</p>
+  
+  <form action="{% url 'resume_logs:new_entry' topic.id %}" method='post'>
+    {% csrf_token %}
+    <p>You:</p>
+    {{ form.text }}
+    <p><button name="Submit">Send</button></p>
+  </form>
+ -->
+  
+  <!--<p>Application: {{ topic }}</p>-->
+  
+  
+
+  <!--<p>Sections:</p>-->
+  
+  <!--
+  <p>
+    <a href="{% url 'resume_logs:new_entry' topic.id %}">Add a new section:</a>
+  </p>
+  -->
+  
+  <ul>
+    
+    <!--<li>-->
+	{% for entry in entries %}
+	  {% if entry == 0 %}
+	    <hr></hr>
+	  {% endif %}
+	  
+	  {% if entry != 0 %}
+		<div class="card mb-3">
+		  <h5 class="card-header">
+			<!--<p id="header"></p>
+			<script>
+			  const subsections = '{{ subsections }}'.split('_');
+			  var entry = '{{ entry }}';
+			  const entries = '{{ entries }}';
+			  let index = entries.indexOf(entry) % subsections.length;
+			  
+			  document.getElementById("header").innerHTML = '<p>' + subsections[index] + '</p>';
+			  
+			</script>-->
+			{{ entry.subheader }}
+			<small><a href="{% url 'resume_logs:edit_entry_editprofile' entry.id %}">&ensp; Edit section</a></small>
+			  
+			  
+		  </h5>
+			
+		  <div class="card-body">
+			
+			<p>{{ entry.section_text }}</p>
+			
+			  
+		  </div>
+		</div>
+	  {% endif %}
+	  
+
+	<!--{% if forloop.first %}-->
+	    
+	<!--{% endif %}-->
+	<!--
+	<div class="card mb-3">
+	  <div class="card-body">
+		<p id="demo"></p>
+		<script>
+		document.currentScript.getAttribute('ai_suggested_texts');
+		const ai_suggested_text = ai_suggested_texts;
+		let text = ai_suggested_texts.toString()
+		document.getElementById("demo").innerHTML = text;
+		</script>
+		<li>{{ai_suggested_texts}}</li>
+	  </div>
+	</div>
+	-->
+
+    <!--</li>-->
+	<br></br>
+	{% empty %}
+	  <p>Nothing here yet...</p>
+	{% endfor %}
+  
+  </ul>
+{% endblock content %}

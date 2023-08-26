@@ -1,0 +1,117 @@
+{% extends "resume_logs/base.html" %}
+{% load bootstrap4 %}
+
+{% block page_header %}
+  <h2>Topic: {{topic}}</h2>
+{% endblock page_header %}
+
+{% block content %}
+  <p><strong>Unfinished questions: {{ incomplete_entries }}</strong></p>
+  <p>Resume Assistant: {{ question }}</p>
+  
+  <form action="{% url 'resume_logs:new_entry' topic.id %}" method='post'>
+    {% csrf_token %}
+    <p>You:</p>
+    {{ form.text }}
+    <p><button type="submit"  name="action" value="Backward">Backward</button><button type="submit"  name="action" value="Send">Send</button><button type="submit"  name="action" value="Forward">Forward</button></p>
+  </form>
+ 
+  <!--<p>Application: {{ topic }}</p>-->
+  
+  <!--
+  <p>Topic: {{ topic }}</p>
+  <p>Entries:</p>
+  -->
+
+  <!--<p>Sections:</p>-->
+  
+  <!--
+  <p>
+    <a href="{% url 'resume_logs:new_entry' topic.id %}">Add a new section:</a>
+  </p>
+  -->
+  
+  <br></br>
+  
+
+    
+    <!--<li>-->
+<div class="card mb-3">
+<h5 class="card-header">Overview</h5>		
+<div class="card-body">
+{% for entry in entries %}
+  <p>-------------------------------</p>
+  <p><strong>Assistant:</strong> {{ entry.section }}</p>
+  <p><strong>You:</strong> {{ entry.text }}</p>
+  <p><strong>GPT:</strong> {{ entry.gpt }}</p>
+{% empty %}
+  <p>Nothing here yet...</p>
+{% endfor %}
+  
+</div>
+</div>
+	  
+
+	<!--{% if forloop.first %}-->
+	    
+	<!--{% endif %}-->
+	<!--
+	<div class="card mb-3">
+	  <div class="card-body">
+		<p id="demo"></p>
+		<script>
+		document.currentScript.getAttribute('ai_suggested_texts');
+		const ai_suggested_text = ai_suggested_texts;
+		let text = ai_suggested_texts.toString()
+		document.getElementById("demo").innerHTML = text;
+		</script>
+		<li>{{ai_suggested_texts}}</li>
+	  </div>
+	</div>
+	-->
+
+    <!--</li>-->
+	<br></br>
+
+    <!--<li>-->
+	<div class="card mb-3">
+	  <h5 class="card-header">
+		Chat History <small>(sorted from most to least recent)</small>
+	  </h5>
+		
+	  <div class="card-body">
+	    {% for entry in profile_chat_history %}
+		  <p><strong>Agent:</strong> {{ entry.question }}</p>
+		  <p><strong>You:</strong> {{ entry.answer }}</p>
+		{% empty %}
+          <p>Nothing here yet...</p>
+		{% endfor %}
+          
+	  </div>
+	</div>
+	  
+
+	<!--{% if forloop.first %}-->
+	    
+	<!--{% endif %}-->
+	<!--
+	<div class="card mb-3">
+	  <div class="card-body">
+		<p id="demo"></p>
+		<script>
+		document.currentScript.getAttribute('ai_suggested_texts');
+		const ai_suggested_text = ai_suggested_texts;
+		let text = ai_suggested_texts.toString()
+		document.getElementById("demo").innerHTML = text;
+		</script>
+		<li>{{ai_suggested_texts}}</li>
+	  </div>
+	</div>
+	-->
+
+    <!--</li>-->
+	<br></br>
+
+
+
+{% endblock content %}
