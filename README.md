@@ -40,9 +40,9 @@ data = [
 
 csv_file_name = "ApplicationKnowledge.csv"
 
-"""Completely overwrite the existing data in the file"""
-def overwrite(new_data):
-  with open(csv_file_name, 'w', newline='') as csv_file:
+"""Overwrite or add new data under the existing data in the file"""
+def amend_data(new_data, method='w'):
+  with open(csv_file_name, method, newline='') as csv_file:
     csv_writer = csv.writer(csv_file)
     
     for row in new_data:
@@ -51,11 +51,7 @@ def overwrite(new_data):
 #############################################################
 
 def add_rows(new_data):
-  with open(csv_file_name, 'a', newline='') as csv_file:
-    csv_writer = csv.writer(csv_file)
-    
-    for row in new_data:
-      csv_writer.writerow(row)
+  amend_data(new_data, method='a')
   
 def add_columns(new_data):
   data_index = 0
@@ -67,7 +63,7 @@ def add_columns(new_data):
       new_data[data_index] = row + new_data[data_index]
       data_index += 1
           
-  overwrite(new_data)
+  amend_data(new_data)
   
 
 """Add new data to file without overwriting the old data"""
@@ -78,7 +74,7 @@ def append_data(new_data):
     labels = next(csv_reader)
     num_rows = sum(1 for row in csv_reader)
     
-    data_rows = [["Not found"] * len(new_data[0]) for _ in range(num_rows)]
+    data_rows = [["Not found"] * len(new_data[0]) for _ in range(len(new_data) - 1)]
   
   for c in range(len(new_data[0])):
     if new_data[0][c] not in labels:
@@ -92,6 +88,6 @@ def append_data(new_data):
 
 
 """Call either function to overwrite or append data as needed"""
-# overwrite(data[:])
+# amend_data(data[:])
 # append_data(data[:])
 ```
