@@ -1,7 +1,7 @@
 from django import forms
 from .models import Topic, Entry, QuestionHistory
 
-# Create your models here.
+# Create model forms
 
 class TopicForm(forms.ModelForm):
   
@@ -27,6 +27,7 @@ class PersonalInfoForm(forms.ModelForm):
     fields = ['text']
     labels = {'text' : 'Info'}
     widgets = {'text' : forms.Textarea(attrs={'cols' : 100, 'rows' : 3})}
+  
   
 class QuestionForm(forms.ModelForm):
   

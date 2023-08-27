@@ -22,35 +22,24 @@ app_name = 'resume_logs'
 urlpatterns = [
     # Home page
     path('', views.index, name='index'),
+	
+	# Topic related pages
     path('topics/', views.topics, name='topics'),
     path('topics/<int:topic_id>/', views.topic, name='topic'),
     
-    path('new_topic/', views.new_topic, name='new_topic'),
-    # Page for adding a new entry
-    path('new_entry/<int:topic_id>/', views.new_entry, name='new_entry'),
-    # Page for editing an entry.
-    path('edit_entry/<int:entry_id>/', views.edit_entry, name='edit_entry'),
-    
-    #path('topics_editprofile/', views.topics_editprofile, name='topics_editprofile'),
-    #path('topics_editprofile/<int:topic_id>/', views.topic_editprofile, name='topic_editprofile'),
-    
-    #path('new_topic_editprofile/', views.new_topic_editprofile, name='new_topic_editprofile'),
-    # Page for adding a new entry
-    #path('new_entry_editprofile/<int:topic_id>/', views.new_entry_editprofile, name='new_entry_editprofile'),
-    # Page for editing an entry.
-    path('edit_entry_editprofile/<int:entry_id>/', views.edit_entry_editprofile, name='edit_entry_editprofile'),
-    
-    #path('view_profile', views.view_profile, name='view_profile'),
-    path('generate_resume/', views.generate_resume, name='generate_resume'),
-    path('extract_entries/', views.extract_entries, name='extract_entries'),
-    path('generate_txt/', views.generate_txt, name='generate_txt'),
-    path('generate_pdf/', views.generate_pdf, name='generate_pdf'),
-    path('generate_docx/', views.generate_docx, name='generate_docx'),
+    # Adding a new user answer
+    path('new_answer/<int:topic_id>/', views.new_answer, name='new_answer'),
+	
+	# Q & A page functions
     path('q_and_a/', views.q_and_a, name='q_and_a'),
     path('send_question/', views.send_question, name='send_question'),
     
-    path('generate_section/<int:entry_id>/', views.generate_section, name='generate_section'),
-    path('download/', views.download_template, name='download_template'),
-    path('topics/ai_advisor/', views.ai_advisor, name='ai_advisor'),
- 
+	# Resume generation function URLs
+    path('generate_resume/', views.generate_resume, name='generate_resume'),
+    path('extract_entries/', views.extract_entries, name='extract_entries'),
+	
+	# File generation function URLs
+    path('generate_txt/', views.generate_txt, name='generate_txt'),
+    path('generate_pdf/', views.generate_pdf, name='generate_pdf'),
+    path('generate_docx/', views.generate_docx, name='generate_docx'),
     ]

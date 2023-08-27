@@ -8,6 +8,5 @@ SUMMARY_PROMPT_IMPROVER = 'Improve the following text quality:'
 TEMPERATURE_SUMMARY_PROMPT_IMPROVER = 0.3
 OPENAIMODEL = 'text-davinci-003'
 OPENAIKEY = "fake_key"
-TEMPLATE_FILE = 'cv_template.txt'
 EXPERIENCE_PROMPT_CONVERT = "Make the text more appealing for a recruiter:"
 RESULT_FILE = 'cv_improved.txt'

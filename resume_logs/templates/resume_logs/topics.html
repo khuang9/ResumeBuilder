@@ -5,14 +5,9 @@
 {% endblock page_header %}
 
 {% block content %}
-  <!--<p>Applications</p>-->
   <ul>
-      {% for topic in topics %}
-        <li><h3><a href="{% url 'resume_logs:topic' topic.id %}">{{ topic }}</a></h3></li>
-      {% empty %}
-        <li>No topics have been added yet.</li>
-      {% endfor %}
+    {% for topic in topics %}
+      <li><h3><a href="{% url 'resume_logs:topic' topic.id %}">{{ topic }}</a></h3></li>
+    {% endfor %}
   </ul>
-  <!--<h5><small><a href="{% url 'resume_logs:new_topic' %}">Add a new topic:</a></small></h5>-->
-
 {% endblock content %}

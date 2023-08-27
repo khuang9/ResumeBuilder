@@ -21,23 +21,26 @@
   </style>
   
   <p>
-  <a href="{% url 'resume_logs:extract_entries' %}" class=button>Generate Resume</a>
-  <a href="{% url 'resume_logs:generate_txt' %}" class=button>Download TXT</a>
-  <a href="{% url 'resume_logs:generate_pdf' %}" class=button>Download PDF</a>
-  <a href="{% url 'resume_logs:generate_docx' %}" class=button>Download DOCX</a>
+    <a href="{% url 'resume_logs:extract_entries' %}" class=button>Generate Resume</a>
+    <a href="{% url 'resume_logs:generate_txt' %}" class=button>Download TXT</a>
+    <a href="{% url 'resume_logs:generate_pdf' %}" class=button>Download PDF</a>
+    <a href="{% url 'resume_logs:generate_docx' %}" class=button>Download DOCX</a>
   </p>
+  
   <p>Personal Info: {{ personal_info }}</p>
   <p>Summary: {{ summary }}</p>
+  
   <br></br>
-{% for item in items %}
-  <p>========= Section: {{ item.topic_text }} ========</p>
-  <p>--------- Generated Resume Text ---------</p>
-  {{ item.resume_text|linebreaks }}
-  <p>--------- User Profile Text ---------</p>
-  {{ item.profile_text|linebreaks }}
+  
+  {% for item in items %}
+    <p>========= Section: {{ item.topic_text }} ========</p>
+    <p>--------- Generated Resume Text ---------</p>
+    {{ item.resume_text|linebreaks }}
+    <p>--------- User Profile Text ---------</p>
+    {{ item.profile_text|linebreaks }}
 
-{% empty %}
-  <p>Nothing here yet...</p>
-{% endfor %}
+  {% empty %}
+    <p>Nothing here yet...</p>
+  {% endfor %}
 
 {% endblock content %}

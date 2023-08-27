@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
-# Create your models here.
+
+# Create models
 
 class Topic(models.Model):
   text = models.CharField(max_length = 200)
@@ -12,6 +13,7 @@ class Topic(models.Model):
   def __str__(self):
     """ Return a string representation of the model. """
     return self.text
+
 
 class Entry(models.Model):
   topic = models.ForeignKey(Topic, on_delete=models.CASCADE)
@@ -27,6 +29,7 @@ class Entry(models.Model):
     
   def __str__(self):
     return f"{self.text[:50]}..."
+  
   
 class QuestionHistory(models.Model):
   question = models.TextField()
