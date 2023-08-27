@@ -31,6 +31,7 @@ ResumeBuilder is an AI-powered tool that helps students create personalised, hig
 ```python
 import csv
 
+# Obtain data through web scraping
 data = [
     ["Your labels here", "your label 1", "your label 2", "etc."],
     ["Your data here", "your data 1", "your data 2", "etc."],
