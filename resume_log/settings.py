@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9(#ja+)jpsodh@56y4k#d$y9gbk(16=xgqz+@*9+&16#5k-!j='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['ai-resumebuilder-herokuapp.com']
 
 
 # Application definition
