@@ -20,12 +20,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-9(#ja+)jpsodh@56y4k#d$y9gbk(16=xgqz+@*9+&16#5k-!j='
+SECRET_KEY = 'c&=x%v4k!%$bn&9!)*b5%-0ao)fsrl6@mbpd8t8zt*b*5#*4h0'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ai-resumebuilder-herokuapp.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -149,7 +149,7 @@ if os.getcwd() == '/app':
 	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 	
 	# Allow all host headers.
-	ALLOWED_HOSTS = ['ai-resumebuilder-herokuapp.com', '127.0.0.1']
+	ALLOWED_HOSTS = ['the-resume-9976aef39c08.herokuapp.com', 'ai-resumebuilder-378e13c269aa.herokuapp.com', '127.0.0.1']
 	STATIC_URL = '/static/'
 	# Static asset configuration
 	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
