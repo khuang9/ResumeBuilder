@@ -150,7 +150,7 @@ if os.getcwd() == '/app':
 	
 	# Allow all host headers.
 	ALLOWED_HOSTS = ['192.168.1.8', 'localhost', '127.0.0.1']
-	
+	STATIC_URL = '/static/'
 	# Static asset configuration
 	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 	STATIC_ROOT = os.path.join(BASE_DIR, 'static')
