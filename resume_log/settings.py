@@ -149,11 +149,11 @@ if os.getcwd() == '/app':
 	SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 	
 	# Allow all host headers.
-	ALLOWED_HOSTS = ['192.168.1.8', 'localhost', '127.0.0.1']
+	ALLOWED_HOSTS = ['ai-resumebuilder-herokuapp.com', '127.0.0.1']
 	STATIC_URL = '/static/'
 	# Static asset configuration
 	BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-	STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+	STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 	STATICFILES_DIRS = (
-		os.path.join(BASE_DIR, 'static')
+		os.path.join(BASE_DIR, 'static'),
 	)
