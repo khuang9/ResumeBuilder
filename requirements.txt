@@ -10,3 +10,8 @@ sqlparse==0.4.4
 whitenoise==6.5.0
 static3==0.7.0
 fpdf==1.7.2
+openai==0.27.8
+langchain==0.0.263
+python-docx==0.8.11
+docx==0.2.4
+docx2pdf==0.1.8
